@@ -12,6 +12,9 @@ ul{
   display: flex;
   gap: 3rem;
 }
+li{
+  list-style: none;
+}
 .maint{
   color: #F4CE14;
 }
@@ -63,4 +66,9 @@ ul{
 }
 .meals section{
   background-color: rgb(210, 216, 221);
+}
+.mealt{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
