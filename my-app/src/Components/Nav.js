@@ -13,6 +13,7 @@ export default function Nav(){
                 <Link to="/reservation">Reservation</Link>
                 <Link to="/order">Order Online</Link>
                 <Link to="/login">Login</Link>
+                <Link to="/comfirmbooking"></Link>
             </ul>
         </nav>
         </header>

@@ -7,6 +7,7 @@ import Reserve from './Pages/Reserve';
 import Order  from './Pages/Order';
 import About from './Pages/About';
 import { Login } from './Pages/Login';
+import ConfirmBooking from './Pages/ConfirmBooking';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <Route path="/order" element={<Order/>}/>
     <Route path="/reservation" element={<Reserve/>}/>
     <Route path="/login" element={<Login/>}/>
+    <Route path='/comfirmbooking' element={<ConfirmBooking/>}/>
   </Routes>
     </>
    

@@ -1,24 +1,34 @@
 import {useReducer} from "react"
 import ReserveForm from "../Components/ReserveForm"
-import {fetchAPI} from "../api"
+import { fetchAPI, submitAPI } from "../Components/Api"
+import { useNavigate } from "react-router-dom"
 
 
-function initializeTimes(){
-    const date=new Date()
-    return fetchAPI(date)
+export function initializeTimes(){
+    const today=new Date()
+    return fetchAPI(today)
 }
-function updateTimes(availableTimes, action){
+
+export function updateTimes(availableTimes, action){
     switch(action.type){
-        case 'UPDATE_TIMES': return fetchAPI(action.payload)
+        case 'UPDATE_TIMES': let dayOfTheMonth=new Date(action.payload)
+        return fetchAPI(dayOfTheMonth)
         default: return availableTimes
     }
 }
+
 export default function Reserve(){
     const [availableTimes, dispatch]=useReducer(updateTimes,[], initializeTimes)
-    
+    const nav= useNavigate()
+    function submitForm(formData){
+        const dataSubmit=submitAPI(formData)
+        if(dataSubmit){
+            nav('/comfirmbooking')
+        }else{console.log('submission failed')}
+    }
     return(
         <>
-        <ReserveForm availableTimes={availableTimes} dispatch={dispatch}/>
+        <ReserveForm   availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm}/>
         </>
     )
 }
